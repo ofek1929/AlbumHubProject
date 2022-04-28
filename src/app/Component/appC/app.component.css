@@ -1,0 +1,67 @@
+#logo {
+  float: right;
+}
+
+#hamburger{
+  width: 75px;
+  height: 75px;
+}
+#user{
+  width: 75px;
+  height: 50px;
+}
+
+header{
+  border-bottom-style: solid;
+}
+
+footer {
+  position:absolute;
+  bottom: 0;
+  width:99%;
+  height:60px;
+  font-size: xx-large;
+  border-top-style: solid ;
+}
+
+header #Ha{
+  visibility: hidden;
+  height: 0px;
+}
+header #Hb{
+  visibility: hidden;
+  height: 0px;
+}
+header #Hc{
+  visibility: hidden;
+  height: 0px;
+}
+header #Hd{
+  visibility: hidden;
+  height: 0px;
+}
+header #He{
+  visibility: hidden;
+  height: 0px;
+}
+
+footer #Ua{
+  visibility: hidden;
+  height: 0px;
+}
+footer #Ub{
+  visibility: hidden;
+  height: 0px;
+}
+footer #Uc{
+  visibility: hidden;
+  height: 0px;
+}
+footer #Ud{
+  visibility: hidden;
+  height: 0px;
+}
+footer #Ue{
+  visibility: hidden;
+  height: 0px;
+}

@@ -1,0 +1,31 @@
+<header>
+  <img id='logo' src='/assets/images/logo.jpg'>
+  <br>
+  <a (click)="Open()">
+    <img id="hamburger" src="/assets/images/menu.png">
+  </a>
+  <br>
+  <button id="Ha">Theme - Light / Dark</button>
+  <button id="Hb">Enter / Exit - Privet mode</button>
+  <button id="Hc">Edit categories</button>
+  <button id="Hd">About</button>
+  <button id="He">Exit Web</button>
+  <br>
+  <button (click)="switchPage('image')">Show Album Page</button>
+  <button (click)="switchPage('upload')">Show Upload Page</button>
+</header>
+
+<!-- <app-welcome></app-welcome> -->
+<app-upload style="display: none;" id="upload"></app-upload>
+<app-image style="display: none;" id="image"></app-image>
+
+<footer>
+  <a (click)="OpenUser()">
+    <img id="user" src="/assets/images/user.png">
+  </a>
+  <button id="Ua">Show images on list / table</button>
+  <button id="Ub">Start Random slideshow</button>
+  <button id="Uc">Swich mode to import / observe images</button>
+  <button id="Ud" [disabled]="isDisabled">Share images</button>
+  <button id="Ue" [disabled]="isDisabled">Sync with Cloud storage</button>
+</footer>

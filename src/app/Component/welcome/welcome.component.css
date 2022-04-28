@@ -1,0 +1,37 @@
+/* one */
+#screenOne{
+    text-align: center;
+    font-size: 75px;
+}
+#screenOne button{
+    font-size: 50px;
+}
+
+/* two */
+#screenTwo{
+    visibility: hidden;
+    text-align: center;
+    font-size: 75px;
+}
+#screenTwo #password{
+    font-size: 50px;
+}
+#screenTwo button{
+    font-size: 50px;
+}
+
+/* three */
+#screenThree{
+    visibility: hidden;
+    text-align: center;
+    font-size: 75px;
+}
+#screenThree button{
+    font-size: 50px;
+}
+#screenThree #text{
+    font-size: 50px;
+}
+#screenThree select{
+    font-size: 50px;
+}

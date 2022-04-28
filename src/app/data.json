@@ -1,0 +1,13 @@
+{
+  "User": {
+    "id": " 1 ",
+    "firstname": " Ron ",
+    "lastname": " Atali ",
+    "camera": " True ",
+    "location": " True ",
+    "private": {
+      "mode": " True ",
+      "code": " 12345 "
+    }
+  }
+}

@@ -1,0 +1,32 @@
+div{
+    font-size: 75px;
+}
+
+#online{
+    visibility: hidden;
+} 
+#pc{
+    visibility: hidden;
+} 
+#camera{
+    visibility: hidden;
+}
+
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+
+#online #Po{
+    margin: 3px;
+}
+#online #Pe{
+    margin: 3px;
+}
+
+agm-map{
+    height: 300px;
+    width: 500px;
+    /* visibility: hidden; */
+}

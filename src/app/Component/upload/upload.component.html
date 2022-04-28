@@ -1,0 +1,65 @@
+
+<!-- <ul>
+    <li *ngFor="let i of d">
+        {{ i.name }}
+        {{ i.base64 }}
+    </li>
+</ul> -->
+
+
+
+
+<button (click)="switchPage('online')">Online Upload</button>
+<button (click)="switchPage('pc')">PC Upload</button>
+<button (click)="switchPage('camera')">Camera Shoot</button>
+<!-- <app-image></app-image> -->
+
+<div id="online">
+    Search & Upload image from online
+    <input type="text" id="imgurl" placeholder="Search image" />
+    <button (click)="searchPhotos()">Search image</button><br>
+
+    <span id="Po" *ngFor="let i of photosArray; let odd = odd" [ngClass]="{odd: odd}">
+        <img *ngIf='odd' src="{{i.src.small}}">
+        <button *ngIf='odd' (click)="savePhotoFromOnline(i)"> <-Select </button>
+    </span>
+    <br>
+    <span id="Pe" *ngFor="let i of photosArray; let even = even" [ngClass]="{even: even }">
+        <img *ngIf='even' src="{{i.src.small}}">
+        <button *ngIf='even' (click)="savePhotoFromOnline(i)"> <-Select </button>
+    </span>
+    <br>
+    <canvas id="canvasOnline" style="display: none;"></canvas>
+    <agm-map id="map" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+    </agm-map>
+</div>
+<div id="pc">
+    Upload image from PC storage<br>
+    <input type="text" id="imgCaption" placeholder="set image name">
+    <input type="file" id="imgpc" (change)="generateImagePc()"><br>
+    <span id="emptyDivP">
+
+    </span>
+    <button style="visibility:hidden" id="save" (click)="savePhotoFromPC()">Save image</button>
+    <br>
+    <agm-map id="map" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker [latitude]="latitude"[longitude]="longitude"*ngIf="locationChosen"></agm-marker>
+    </agm-map>
+    <!-- <button (click)="toServer('Ron')">To Server</button> -->
+</div>
+<div id="camera">
+    Shoot image from camera<br>
+    <video autoplay="true" id="videoElement">
+	
+	</video>    
+    <canvas id="emptyCanvasC">
+        
+    </canvas>
+    <button (click)="takeShoot()">Shoot</button>
+    <input type="text" id="imgCaptionC" placeholder="set image name">
+    <button (click)="saveShoot()">Save</button>
+    <!-- <agm-map id="map" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen"></agm-marker>
+    </agm-map> -->
+</div>

@@ -1,0 +1,241 @@
+<button (click)='showAll()'>Show All Images</button>
+<button (click)='showFavImages()'>Show Favorite Images</button>
+<button (click)='addCategoriesToComboBox()'>Show Categories</button>
+<select style="visibility: hidden" id="cat" (change)="selectCategory()">
+    <option>Categories</option>
+    <option *ngFor="let i of categories" value="{{i}}" > {{i}} </option>
+</select>
+
+<!-- <i style='font-size:30px'>&#x2B50;</i> -->
+
+<div id="scroll">
+    <table>
+        <tr>
+            <td *ngFor="let item of images; let odd = odd" [ngClass]="{odd: odd}">
+                <div class="divI" *ngIf='odd'>
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i>                  
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+<div id="scroll1">
+    <table>
+        <tr>
+            <td *ngFor="let item of images; let even = even" [ngClass]="{even: even }">
+                <div class="divI" *ngIf='even'>
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i> 
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+<div id="scroll2">
+    <table>
+        <tr>
+            <td *ngFor="let item of selectedImageCategories">
+                <div class="divI">
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i>  
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+<div id="scrollFav">
+    <table>
+        <tr>
+            <td *ngFor="let item of images">
+                <div class="divI" *ngIf="item.isFavorit">
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i>
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+<div id="scrollNP">
+    <table>
+        <tr>
+            <td *ngFor="let item of images">
+                <div class="divI" *ngIf="!item.isPrivet">
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i>                  
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="scroll">
+    <table>
+        <tr>
+            <td *ngFor="let item of images; let odd = odd" [ngClass]="{odd: odd}">
+                <div class="divI" *ngIf='odd'>
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i>                  
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td *ngFor="let item of images; let even = even" [ngClass]="{even: even }">
+                <div class="divI" *ngIf='even'>
+                    <h3>
+                        {{ item.name }}
+                    </h3>
+                    <img src="data:image/png;base64,{{ item.base64 }}">
+                    <span>{{item.categories}}</span>
+                    <br>
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="item.isPrivet" >&#xf023;</i> 
+                    <i id="icon" style='font-size:24px' class='fas' *ngIf="!item.isPrivet" >&#xf09c;</i> 
+                    <i id="star" class="far fa-star" (click)='Favorite(item)' *ngIf="!item.isFavorit"></i> 
+                    <i style='font-size:30px' (click)='Favorite(item)' *ngIf="item.isFavorit">&#x2B50;</i> 
+                    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(item.latitude,item.longitude)'></i>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div> -->
+
+<!-- <div>
+    <h3>
+        {{ image1.caption }}
+    </h3>
+    <p>
+        <img src="{{ image1.image }}">
+    </p>
+    <span *ngFor = 'let i of image1.categories'>{{ i }},</span>
+    <br>
+    <i id="icon" style='font-size:24px' class='fas'>&#xf023;</i>
+    <i id="star" class="far fa-star" (click)='Favorite()'></i>
+    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='Location()'></i>
+
+</div>
+<div *ngFor="let i of images" >
+    <h3>
+        {{ i.name }}
+    </h3>
+    <img src="data:image/png;base64,{{ i.base64 }}">
+    <span>{{i.categories}}</span>
+    <br>
+    <i id="icon" style='font-size:24px' class='fas' *ngIf="i.isPrivet" >&#xf023;</i> 
+    <i id="icon" style='font-size:24px' class='fas' *ngIf="!i.isPrivet" >&#xf09c;</i> 
+    <i id="star" class="far fa-star" (click)='Favorite(i)'></i>
+    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(i.latitude,i.longitude)'></i>
+</div>
+
+<div>
+    <span *ngFor="let i of images; let odd = odd" [ngClass]="{odd: odd}">
+        <h3 *ngIf='odd'>
+            {{ i.name }}
+        </h3>
+        <img *ngIf='odd' src="data:image/png;base64,{{ i.base64 }}">
+        <span *ngIf='odd'>{{i.categories}}</span>
+        <br *ngIf='odd'>
+        <i id="icon" style='font-size:24px' class='fas' *ngIf="i.isPrivet && odd" >&#xf023;</i> 
+        <i id="icon" style='font-size:24px' class='fas' *ngIf="!i.isPrivet && odd" >&#xf09c;</i> 
+        <i *ngIf='odd' id="star" class="far fa-star" (click)='Favorite(i)'></i>
+        <i *ngIf='odd' id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(i.latitude,i.longitude)'></i>
+    </span>
+    <br/>
+    <span *ngFor="let i of images; let even = even" [ngClass]="{even: even }">
+        <h3 *ngIf='even'>
+            {{ i.name }}
+        </h3>
+        <img *ngIf='even' src="data:image/png;base64,{{ i.base64 }}">
+        <span *ngIf='even'>{{i.categories}}</span>
+        <br *ngIf='even'>
+        <i id="icon" style='font-size:24px' class='fas' *ngIf="i.isPrivet && even" >&#xf023;</i> 
+        <i id="icon" style='font-size:24px' class='fas' *ngIf="!i.isPrivet && even" >&#xf09c;</i> 
+        <i *ngIf='even' id="star" class="far fa-star" (click)='Favorite(i)'></i>
+        <i *ngIf='even' id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(i.latitude,i.longitude)'></i>
+    </span>
+</div>
+
+<div style="visibility: hidden">
+    <h3>
+        {{ i.name }}
+    </h3>
+    <img src="data:image/png;base64,{{ i.base64 }}">
+    <span>{{i.categories}}</span>
+    <br>
+    <i id="icon" style='font-size:24px' class='fas' *ngIf="i.isPrivet" >&#xf023;</i> 
+    <i id="icon" style='font-size:24px' class='fas' *ngIf="!i.isPrivet" >&#xf09c;</i> 
+    <i id="star" class="far fa-star" (click)='Favorite(i)'></i>
+    <i id="icon" class='fas fa-map-marker-alt' style='color:red' (click)='getLocation(i.latitude,i.longitude)'></i>
+</div> -->

@@ -1,0 +1,35 @@
+<div id="screenOne">
+    <h1>
+        Welcome Dear User
+    </h1>
+
+    <button (click)="Jump2()" >
+        Build your Library
+    </button>
+</div>
+
+<div id="screenTwo">
+    <input type="checkbox">allow camera<br>
+    <input type="checkbox">allow location<br>
+    <input  type="checkbox">allow private mode<br>
+    <input id="password" [disabled]="isDisabled" type="password" placeholder="Private mode passowrd"><br>
+    <button (click)="Jump3()">
+        Next
+    </button>
+</div>
+
+
+<div id="screenThree">
+    <input id="text" type="text" placeholder="Library name"><br>
+    <input id="text" type="text" placeholder="Description"><br>
+    Default View template
+    <select>
+        <option value="list">List</option>
+        <option value="grid">Grid</option>
+    </select><br>
+    <button >
+        Next
+        <!-- <a routerLink='/aaa' routerLinkActive="active"></a> --> 
+    </button>
+</div>
+

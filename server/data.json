@@ -1,0 +1,50 @@
+[
+    {
+        "name": "boom",
+        "categories": "a,b,c,d",
+        "latitude": 32.8204288,
+        "longitude": 35.0748672,
+        "isFavorit": false,
+        "isPrivet": false
+    },
+    {
+        "name": "asdf",
+        "categories": "balagan",
+        "latitude": 32.8204288,
+        "longitude": 35.0748672,
+        "isFavorit": true,
+        "isPrivet": true
+    },
+    {
+        "name": "shootMe",
+        "categories": "haifa,green,me",
+        "latitude": 32.8204288,
+        "longitude": 35.0748672,
+        "isFavorit": false,
+        "isPrivet": false
+    },
+    {
+        "name": "rty",
+        "categories": "nike",
+        "latitude": 0,
+        "longitude": 0,
+        "isFavorit": false,
+        "isPrivet": false
+    },
+    {
+        "name": "Flag",
+        "categories": "israel",
+        "latitude": 32.8430777,
+        "longitude": 35.0718397,
+        "isFavorit": false,
+        "isPrivet": true
+    },
+    {
+        "name": "jerusalem",
+        "categories": "israel2",
+        "latitude": 32.8430777,
+        "longitude": 35.0718397,
+        "isFavorit": false,
+        "isPrivet": false
+    }
+]
